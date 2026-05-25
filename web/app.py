@@ -180,50 +180,43 @@ def load_models():
     try:
         with open(os.path.join(base_path, 'data_splits_tfidf.pkl'), 'rb') as f:
             data_splits = pickle.load(f)
-    except Exception as e:
-        st.error(f"Error loading data_splits: {e}")
+    except Exception:
         pass
 
     try:
         with open(os.path.join(base_path, 'model_lr_tuned_biner.pkl'), 'rb') as f:
             lr_model = pickle.load(f)
-    except Exception as e:
-        st.error(f"Error loading lr_model: {e}")
+    except Exception:
         pass
 
     try:
         with open(os.path.join(base_path, 'model_nb_biner.pkl'), 'rb') as f:
             mnb_model = pickle.load(f)
-    except Exception as e:
-        st.error(f"Error loading mnb_model: {e}")
+    except Exception:
         pass
 
     try:
         with open(os.path.join(base_path, 'model_lr_tuned_biner.pkl'), 'rb') as f:
             tuned_lr_model = pickle.load(f)
-    except Exception as e:
-        st.error(f"Error loading tuned_lr_model: {e}")
+    except Exception:
         pass
 
     try:
         with open(os.path.join(base_path, 'model_nb_biner.pkl'), 'rb') as f:
             nb_biner_model = pickle.load(f)
-    except Exception as e:
-        st.error(f"Error loading nb_biner_model: {e}")
+    except Exception:
         pass
 
     try:
         with open(os.path.join(base_path, 'model_svm_biner.pkl'), 'rb') as f:
             svm_biner_model = pickle.load(f)
-    except Exception as e:
-        st.error(f"Error loading svm_biner_model: {e}")
+    except Exception:
         pass
 
     try:
         with open(os.path.join(base_path, 'tfidf_vectorizer.pkl'), 'rb') as f:
             tfidf_vectorizer = pickle.load(f)
-    except Exception as e:
-        st.error(f"Error loading tfidf_vectorizer: {e}")
+    except Exception:
         pass
 
     return data_splits, lr_model, mnb_model, tuned_lr_model, nb_biner_model, svm_biner_model, tfidf_vectorizer
