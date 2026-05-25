@@ -168,9 +168,13 @@ def load_models():
 
     # 2. Setup path - gunakan __file__ untuk mendapatkan lokasi app.py
     # Kemudian naik 1 level ke project root, lalu akses folder data
-    app_dir = os.path.dirname(os.path.abspath(__file__))  # D:\...\web
-    project_root = os.path.dirname(app_dir)  # D:\...\Bug-Severity-Classification
-    base_path = os.path.join(project_root, 'data', 'processed')
+    if os.path.exists("data/processed"):
+        # Ini jalur yang akan dipakai oleh Streamlit Cloud (karena jalan dari root)
+        base_path = "data/processed"
+    else:
+        app_dir = os.path.dirname(os.path.abspath(__file__))  # D:\...\web
+        project_root = os.path.dirname(app_dir)  # D:\...\Bug-Severity-Classification
+        base_path = os.path.join(project_root, 'data', 'processed')
 
     # 3. Load secara independen satu per satu
     try:
@@ -267,12 +271,21 @@ def convert_to_binary(pred_num):
 @st.cache_data
 def load_sample_data():
     try:
-        app_dir = os.path.dirname(os.path.abspath(__file__))
-        project_root = os.path.dirname(app_dir)
-        csv_path = os.path.join(project_root, 'data', 'processed', 'github_issues_preprocessed.csv')
+        # 1. Tentukan base_path secara dinamis terlebih dahulu
+        if os.path.exists("data/processed"):
+            base_path = "data/processed"
+        else:
+            app_dir = os.path.dirname(os.path.abspath(__file__))
+            project_root = os.path.dirname(app_dir)
+            base_path = os.path.join(project_root, 'data', 'processed')
+            
+        # 2. Baca file CSV di luar blok if-else menggunakan base_path yang sudah siap
+        csv_path = os.path.join(base_path, 'github_issues_preprocessed.csv')
         df = pd.read_csv(csv_path, nrows=1000)
+        
         return df
-    except FileNotFoundError:
+    except Exception as e:
+        # Mengembalikan DataFrame kosong jika file tidak ditemukan atau error
         return pd.DataFrame()
 
 # --- SIDEBAR NAVIGATION ---
