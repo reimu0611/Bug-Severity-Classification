@@ -339,6 +339,16 @@ def hero(title, subtitle, badge="Natural Language Processing Project"):
 def section(title):
     st.markdown(f'<div class="section-title">{title}</div>', unsafe_allow_html=True)
 
+def _get_reports_path(filename):
+    """Resolve report image paths for local and Streamlit Cloud runs."""
+    if os.path.exists("reports"):
+        base_path = "reports"
+    else:
+        app_dir = os.path.dirname(os.path.abspath(__file__))
+        project_root = os.path.dirname(app_dir)
+        base_path = os.path.join(project_root, "reports")
+    return os.path.join(base_path, filename)
+
 # ===========================================================================
 # PAGE: HOME
 # ===========================================================================
@@ -897,7 +907,7 @@ elif page == "🏆 Model Evaluation & Comparison":
         """, unsafe_allow_html=True)
         
         try:
-            st.image("../reports/learning_curve_comparison.png", use_container_width=True)
+            st.image(_get_reports_path("learning_curve_comparison.png"), use_container_width=True)
             st.markdown("""
             <div style="color:#99aab5; font-size:0.85rem; margin-top:10px; line-height:1.5;">
                 <b>Interpretation:</b> This graph proves that the SVM model <b>does not experience overfitting</b>. The <i>Training Accuracy</i> and <i>Validation Accuracy</i> curves remain stable, close to each other, and converge as the amount of training data increases.
@@ -915,7 +925,7 @@ elif page == "🏆 Model Evaluation & Comparison":
         """, unsafe_allow_html=True)
         
         try:
-            st.image("../reports/confusion_matrix_comparison.png", use_container_width=True)
+            st.image(_get_reports_path("confusion_matrix_comparison.png"), use_container_width=True)
             st.markdown("""
             <div style="color:#99aab5; font-size:0.85rem; margin-top:10px; line-height:1.5;">
                 <b>Interpretation:</b> This matrix maps both correct predictions (main diagonal) and misclassifications. The most common classification error occurs when the model predicts a <code>Critical</code> report as <code>Non-Critical</code>, which linguistically often share similar words (<i>overlapping keywords</i>).
@@ -935,7 +945,7 @@ elif page == "🏆 Model Evaluation & Comparison":
         """, unsafe_allow_html=True)
         
         try:
-            st.image("../reports/f1_score_comparison_grouped.png", use_container_width=True)
+            st.image(_get_reports_path("f1_score_comparison_grouped.png"), use_container_width=True)
             st.markdown("""
             <div style="color:#99aab5; font-size:0.85rem; margin-top:10px; line-height:1.5;">
                 <b>Interpretation:</b> SVM is the best model because it achieves the highest and most balanced F1-scores (≥ 0.930) for both classes. The consistent performance hierarchy across categories (<i>SVM > Logistic Regression > Naive Bayes</i>) proves that SVM creates the most accurate decision boundary for your data with minimal class bias.
