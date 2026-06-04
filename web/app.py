@@ -844,7 +844,7 @@ elif page == "🏆 Model Evaluation & Comparison":
             <hr style="border-color:#40444b; margin:10px 0;">
             <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
                 <span style="color:#99aab5; font-size:1.1rem;">Overall Accuracy:</span>
-                <span style="color:white; font-size:1.2rem; font-weight:bold;">85.99%</span>
+                <span style="color:white; font-size:1.2rem; font-weight:bold;">85.66%</span>
             </div>
             <div style="display:flex; justify-content:space-between; align-items:center; background:#202225; padding:10px; border-radius:8px; border:1px solid #006aeb;">
                 <span style="color:#99aab5; font-size:1.1rem; font-weight:bold;">F1-Score Critical:</span>
@@ -863,7 +863,7 @@ elif page == "🏆 Model Evaluation & Comparison":
             <hr style="border-color:#40444b; margin:10px 0;">
             <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
                 <span style="color:#99aab5; font-size:1.1rem;">Overall Accuracy:</span>
-                <span style="color:white; font-size:1.2rem; font-weight:bold;">78.24%</span>
+                <span style="color:white; font-size:1.2rem; font-weight:bold;">78.16%</span>
             </div>
             <div style="display:flex; justify-content:space-between; align-items:center; background:#202225; padding:10px; border-radius:8px; border:1px solid #FFD700;">
                 <span style="color:#99aab5; font-size:1.1rem; font-weight:bold;">F1-Score Critical:</span>
@@ -884,7 +884,7 @@ elif page == "🏆 Model Evaluation & Comparison":
             <hr style="border-color:#40444b; margin:10px 0;">
             <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
                 <span style="color:#99aab5; font-size:1.1rem;">Overall Accuracy:</span>
-                <span style="color:white; font-size:1.2rem; font-weight:bold;">93.74%</span>
+                <span style="color:white; font-size:1.2rem; font-weight:bold;">92.62%</span>
             </div>
             <div style="display:flex; justify-content:space-between; align-items:center; background:#202225; padding:10px; border-radius:8px; border:1px solid red;">
                 <span style="color:#99aab5; font-size:1.1rem; font-weight:bold;">F1-Score Critical:</span>
